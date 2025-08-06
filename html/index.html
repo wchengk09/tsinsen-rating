@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>联考评分</title>
+    
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" type="text/css" href="semantic.min.css">
+<link rel="icon" href="/static/favicon.ico">
+<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="utility.css">
+<script src="jquery.min.js"></script>
+<script src="semantic.min.js"></script>
+<script src="localIO.js"></script>
+<link href="star-rating.min.css" rel="stylesheet">
+<script src="star-rating.min.js"></script>
+<link rel="stylesheet" href="font-awesome.css">
+<script src="theme.min.js"></script>
+<link href="theme.min.css" rel="stylesheet">
+<script src="moment.min.js"></script>
+<link href="dataTables.dataTables.min.css" rel="stylesheet">
+<script src="dataTables.min.js"></script>
+<!-- <script src="https://cdn.datatables.net/2.0.2/js/dataTables.semanticui.js"></script> -->
+</head>
+
+<body>
+    
+<div class="ui borderless menu" style="height: 50px;">
+    <div class="ui container">
+        <a class="header item" href="/">
+            联考题目评分
+        </a>
+        <a class="item" href="/">Problems</a>
+        <div class="right menu">
+            
+            <a class="item" onclick="login()">Login</a>
+            
+        </div>
+    </div>
+</div>
+
+    
+    <div class="ui container main-container">
+        <!-- <div class="ui toggle checkbox" style="display: inline-flex;margin-right: 20px;">
+            <input type="checkbox" id="median">
+            <label for="median">Use Median</label>
+        </div>
+        <div class="ui toggle checkbox" style="display: inline-flex;margin-right: 20px;">
+            <input type="checkbox" id="hideUnrated">
+            <label for="hideUnrated">Hide Unrated Ratings</label>
+        </div> -->
+        <div class="ui dropdown right labeled icon button" style="display: inline-flex;">
+            <div class="text">Sort By</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="javascript:sortProblems(0)">Contest</a>
+                <a class="item" href="javascript:sortProblems(1)">Rating</a>
+                <a class="item" href="javascript:sortProblems(2)">Quality</a>
+            </div>
+            
+
+            
+        </div>
+        <!-- <div class="ui dropdown right labeled icon button" style="display: inline-flex;">
+            <div class="text">Rating style</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="#" onclick="$('.ATrating').hide();$('.CFrating').show();">Codeforces</a>
+            </div>
+        </div> -->
+        
+        <div class="ui dropdown right labeled icon button" style="display: inline-flex;">
+            <span class="text">选择课程</span>
+            <i class="dropdown icon"></i>
+            <div class="menu" id="dropdown-choosecourse">
+                <div class="item">
+                    <i class="dropdown icon"></i>
+                    2025 暑假
+                    <div class="menu">
+                        
+                        <a class="item" href="javascript:init(2);"> SDSZ 互测 & 联考 </a>
+
+                        <a class="item" href="javascript:init(3);"> Mashups (Week 3,4)</a>
+                        
+                        <a class="item" href="javascript:init(1);"> Mashups (Week 1,2) </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui info message" style="margin-top: 20px;">
+            您正在查看 <strong id="typename"> 2025 清澄暑假集训 - 集训队 </strong>
+        </div>
+        <table class="ui celled table" style="margin-top: 40px;font-weight: 450;">
+            <thead>
+                <tr>
+                    <th><a href="javascript:sortProblems(0)"
+                            style="cursor: pointer;text-decoration: none;color: #212529;" id="contest">Contest ▾</a>
+                    </th>
+                    <th>Name</th>
+                    <th><a href="javascript:sortProblems(1)"
+                            style="cursor: pointer;text-decoration: none;color: #212529;" id="difficulty">Rating
+                            ▴</a></th>
+                    <th><a href="javascript:sortProblems(2)"
+                            style="cursor: pointer;text-decoration: none;color: #212529;" id="quality">Quality ▴</a>
+                    </th>
+                    <th>Vote</th>
+                <tr>
+            </thead>
+            <tbody class="problems">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="index.js"></script>
+    <script src="circle.js"></script>
+    <script src="rating.js"></script>
+</body>
+
+</html>
