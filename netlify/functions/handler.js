@@ -223,18 +223,22 @@ exports.handler = async (event, context) => {
     
     const sessionKey = await login.login(username, password);
     if (!sessionKey) {
-      res.setHeader('Set-Cookie', [
-        'username=; expires=Thu, 01 Jan 1970 00:00:00 GMT;',
+      res.setHeader('Set-Cookie',
+        'username=; expires=Thu, 01 Jan 1970 00:00:00 GMT;'
+      );
+      res.setHeader('Set-Cookie',
         'user_session=; expires=Thu, 01 Jan 1970 00:00:00 GMT;'
-      ]);
+      )
       res.end("用户名或密码错误");
       return response(res);
     }
     
-    res.setHeader('Set-Cookie', [
-      `username=${username}; Path=/`,
-      `user_session=${sessionKey}; Path=/; Max-Age=1200`
-    ]);
+    res.setHeader('Set-Cookie', 
+      `username=${username}; Path=/`
+    );
+    res.setHeader('Set-Cookie', 
+        `user_session=${sessionKey}; Path=/; Max-Age=1200`
+    );
     res.end("登录成功");
     return response(res);
   }
@@ -248,10 +252,12 @@ exports.handler = async (event, context) => {
     const sessionKey = cookies.user_session;
     
     if (!username || !sessionKey || !(await login.check(sessionKey))) {
-      res.setHeader('Set-Cookie', [
-        'username=; expires=Thu, 01 Jan 1970 00:00:00 GMT;',
+      res.setHeader('Set-Cookie', 
+        'username=; expires=Thu, 01 Jan 1970 00:00:00 GMT;'
+      );
+      res.setHeader('Set-Cookie', 
         'user_session=; expires=Thu, 01 Jan 1970 00:00:00 GMT;'
-      ]);
+      );
       res.end("账号异常，请重新登录!");
       return response(res);
     }
