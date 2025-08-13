@@ -189,7 +189,8 @@ exports.handler = async (event, context) => {
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
       'Access-Control-Allow-Credentials': 'true',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Database-url': process.env.DATABASE_URL
     },
     setHeader: function(key, value) {
       this.headers[key] = value;
