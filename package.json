@@ -1,0 +1,20 @@
+{
+  "name": "tsinsen-rating",
+  "version": "1.0.0",
+  "description": "Tsinsen rating website",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rating"
+  ],
+  "author": "xhabc66,HgSO4qwq,wchengk09",
+  "license": "ISC",
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.1",
+    "@netlify/functions": "^4.2.1",
+    "bcrypt": "^6.0.0",
+    "cookie": "^1.0.2",
+    "pg": "^8.16.3"
+  }
+}

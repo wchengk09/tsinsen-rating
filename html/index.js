@@ -126,7 +126,7 @@ function vote(problem) {
             return;
         }
 
-        fetch("/",{
+        fetch("/api",{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -233,7 +233,7 @@ function rerender(problemData) {
 $(function(){
     if(parseCookies(document.cookie).username)document.getElementsByClassName("right menu")[0].getElementsByTagName("a")[0].innerHTML="Logout";;
     console.log("114514");
-    fetch("/",{
+    fetch("/api",{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -332,7 +332,7 @@ function login() {
         var username = $('#username').val();
         if($('public').checked){alert("你还想把密码公开？？？");return;}
 
-        fetch("/",{
+        fetch("/api",{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
