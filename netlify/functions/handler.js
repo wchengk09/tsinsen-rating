@@ -275,9 +275,22 @@ exports.handler = async (event, context) => {
 
 // 构建响应对象
 function response(resObj) {
+  // 分离单值和多值头部
+  const headers = {};
+  const multiValueHeaders = {};
+
+  Object.entries(resObj.headers).forEach(([key, value]) => {
+    if (key.toLowerCase() === 'set-cookie' && Array.isArray(value)) {
+      multiValueHeaders[key] = value;  // 多值Cookie
+    } else {
+      headers[key] = value;  // 单值头部
+    }
+  });
+
   return {
     statusCode: resObj.statusCode || 200,
-    headers: resObj.headers,
+    headers,
+    multiValueHeaders: Object.keys(multiValueHeaders).length ? multiValueHeaders : undefined,
     body: resObj.body || ''
   };
 }
