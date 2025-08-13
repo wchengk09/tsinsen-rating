@@ -246,10 +246,9 @@ exports.handler = async (event, context) => {
     const sessionKey = cookies.user_session;
     
     if (!username || !sessionKey || !(await login.check(sessionKey))) {
-      res.setHeader('Set-Cookie', [
-        'username=; expires=Thu, 01 Jan 1970 00:00:00 GMT;',
-        'user_session=; expires=Thu, 01 Jan 1970 00:00:00 GMT;'
-      ]);
+      res.setHeader('Set-Cookie', 
+        'username=; expires=Thu, 01 Jan 1970 00:00:00 GMT;'
+      );
       res.end("账号异常，请重新登录!");
       return response(res);
     }
