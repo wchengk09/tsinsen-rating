@@ -223,18 +223,16 @@ exports.handler = async (event, context) => {
     
     const sessionKey = await login.login(username, password);
     if (!sessionKey) {
-      res.setHeader('Set-Cookie', [
-        'username=; expires=Thu, 01 Jan 1970 00:00:00 GMT;',
-        'user_session=; expires=Thu, 01 Jan 1970 00:00:00 GMT;'
-      ]);
+      res.setHeader('Set-Cookie', 
+        'username=; expires=Thu, 01 Jan 1970 00:00:00 GMT;'
+      );
       res.end("用户名或密码错误");
       return response(res);
     }
     
-    res.setHeader('Set-Cookie', [
-      `username=${username}; Path=/`,
-      `user_session=${sessionKey}; Path=/; Max-Age=1200`
-    ]);
+    res.setHeader('Set-Cookie', 
+      `username=${username}; Path=/`
+    );
     res.end("登录成功");
     return response(res);
   }
