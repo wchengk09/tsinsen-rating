@@ -9,6 +9,10 @@ const pool = new Pool({
 // 初始化数据库（只在冷启动时运行一次）
 let dbInitialized = false;
 
+function isNullType(value){
+  return value === null || value === undefined || Number.isNaN(value);
+}
+
 async function initDatabase() {
   if (dbInitialized) return;
   dbInitialized = true;
@@ -144,14 +148,16 @@ const problem = {
         GROUP BY p.name, p.id, p.class, p.date
         ORDER BY p.id
       `);
+
+      // console.log(result.rows);
       
       const problems = result.rows.map((p, idx) => ({
         name: p.name,
         ord: idx + 1,
         id: p.id,
         date: p.date,
-        difficult: parseFloat(p.difficult) || '?',
-        quality: parseFloat(p.quality) || '?',
+        difficult: parseInt(p.difficult) || '?',
+        quality: parseInt(p.difficult) ? p.quality : '?',
         class: p.class || ''
       }));
       
