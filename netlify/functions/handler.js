@@ -140,7 +140,7 @@ const problem = {
   get: async (req, res) => {
     try {
       const result = await pool.query(`
-        SELECT p.name, p.id, p.class, p.date,
+        SELECT p.name, p.id, p.class, p.date, p.ord,
                COALESCE(ROUND(AVG(r.difficult)::numeric, 2), 0) as difficult,
                COALESCE(ROUND(AVG(r.quality)::numeric, 2), 0) as quality
         FROM problems p
@@ -153,7 +153,7 @@ const problem = {
       
       const problems = result.rows.map((p, idx) => ({
         name: p.name,
-        ord: idx + 1,
+        ord: p.ord,
         id: p.id,
         date: p.date,
         difficult: parseInt(p.difficult) || '?',
