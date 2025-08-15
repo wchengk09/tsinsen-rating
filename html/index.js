@@ -163,25 +163,35 @@ function init(classid){
 }
 
 function sortdifcmp(a,b) {
+    var x=false;
     if(1) {
-        if(a.difficult=="?") return 0<Number(b.difficult);
-        if(b.difficult=="?") return Number(a.difficult)<0;
-        return Number(a.difficult)<Number(b.difficult);
+        if(a.difficult=="?") x=(0<Number(b.difficult));
+        if(b.difficult=="?") x=(Number(a.difficult)<0);
+        x=(Number(a.difficult)<Number(b.difficult));
     }else if(0) {
-        if(a.difficult=="?") return 5000>Number(b.difficult);
-        if(b.difficult=="?") return Number(a.difficult)>5000;
-        return Number(a.difficult)>Number(b.difficult);
+        if(a.difficult=="?") x=(5000>Number(b.difficult));
+        if(b.difficult=="?") x=(Number(a.difficult)>5000);
+        x=(Number(a.difficult)>Number(b.difficult));
     }
+    if(x) return 1;
+    else return -1;
 }
 
 function sortdatcmp(a,b) {
-    if(a.date != b.date) return a.date<b.date;
-    else return a.ord>b.ord;
+    var x=false;
+    if(a.date != b.date) x = a.date<b.date;
+    else x = a.ord>b.ord;
+    if(x) return 1;
+    else return -1;
 }
+
 function sortqualcmp(a,b) {
-    if(a.quality=="?") return 0<Number(b.quality);
-    if(b.quality=="?") return Number(a.quality)<0;
-    return Number(a.quality)<Number(b.quality);
+    var x=false;
+    if(a.quality=="?") x=(0<Number(b.quality));
+    if(b.quality=="?") x=(Number(a.quality)<0);
+    x=(Number(a.quality)<Number(b.quality));
+    if(x) return 1;
+    else return -1;
 }
 
 function sortProblems(id) {
@@ -355,3 +365,4 @@ function login() {
 
     });
 }
+
