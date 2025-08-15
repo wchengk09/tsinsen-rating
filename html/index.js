@@ -137,6 +137,7 @@ function vote(problem) {
                 difficult:diff,
                 quality:qual,
                 name:name,
+                ord:ord,
                 problem:problem.name
             })
         }).then(response => response.text())
@@ -365,4 +366,5 @@ function login() {
 
     });
 }
+
 
