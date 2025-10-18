@@ -153,7 +153,7 @@ function vote(problem) {
     });
 }
 
-const classname=["这是彩蛋","2025 暑假 - Mashups (Legacy)","2025 暑假 - SDSZ 互测 & 近代联考","2025 暑假 - Mashups"];
+const classname=["这是彩蛋","2025 暑假 - Mashups (Legacy)","2025 暑假 - SDSZ 互测 & 近代联考","2025 暑假 - Mashups","2025 秋 - 2023 NOI 联考"];
 
 function init(classid){
     $(".problem").hide();
@@ -365,6 +365,7 @@ function login() {
 
     });
 }
+
 
 
 
