@@ -7,7 +7,7 @@ function parseCookies(cookieStr) {
     }, {});
   }
 
-var problemData, prevClass=2;
+var problemData, prevClass=4;
 var array=[0,0,0];
 
 
@@ -365,6 +365,7 @@ function login() {
 
     });
 }
+
 
 
 
