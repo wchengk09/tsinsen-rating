@@ -164,11 +164,13 @@ function init(classid){
 
 function sortdifcmp(a,b) {
     var x=false;
-    if(1) {
+    if(1) {  
+        if(a.difficult=="?" && b.difficult=="?") x=true;
         if(a.difficult=="?") x=(0<Number(b.difficult));
         if(b.difficult=="?") x=(Number(a.difficult)<0);
         x=(Number(a.difficult)<Number(b.difficult));
     }else if(0) {
+        if(a.difficult=="?" && b.difficult=="?") x=true;
         if(a.difficult=="?") x=(5000>Number(b.difficult));
         if(b.difficult=="?") x=(Number(a.difficult)>5000);
         x=(Number(a.difficult)>Number(b.difficult));
@@ -187,6 +189,7 @@ function sortdatcmp(a,b) {
 
 function sortqualcmp(a,b) {
     var x=false;
+    if(a.quality=="?" && b.quality=="?") x=true;
     if(a.quality=="?") x=(0<Number(b.quality));
     if(b.quality=="?") x=(Number(a.quality)<0);
     x=(Number(a.quality)<Number(b.quality));
@@ -365,6 +368,7 @@ function login() {
 
     });
 }
+
 
 
 
